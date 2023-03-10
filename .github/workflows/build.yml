@@ -29,7 +29,7 @@ jobs:
     - name: Deploy to Netlify
       uses: jsmrcaga/action-netlify-deploy@v2.0.0
       with:
-          args: deploy --dir=public --prod
+          build_directory: public
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
