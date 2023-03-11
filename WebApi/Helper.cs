@@ -42,7 +42,7 @@ namespace WebApi
         }
     }
 
-    public class ResponseObject
+    public class TaskResponseObject
     {
         // Message
         public string Message { get; set; }
@@ -52,6 +52,19 @@ namespace WebApi
 
         // Total objects available
         public int Total { get; set; } = 0;
+
+        // Status
+        public Status Status { get; set; }
+
+    }
+
+    public class UserResponseObject
+    {
+        // Message
+        public string Message { get; set; }
+
+        // Users list
+        public Dictionary<int, string> Users { get; set; }
 
         // Status
         public Status Status { get; set; }

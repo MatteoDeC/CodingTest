@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>3a55ae08-97e8-42ed-912c-ea22387b9a47</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <StartupObject>WebApi.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

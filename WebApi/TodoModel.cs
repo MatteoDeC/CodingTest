@@ -37,17 +37,13 @@ namespace WebApi
         /// <param name="limit"></param>
         /// <param name="offset"></param>
         /// <returns></returns>
-        public static async Task<ResponseObject> GetAllTasks(int limit, int offset)
+        public static async Task<TaskResponseObject> GetAllTasks(int limit, int offset)
         {
             // Retrieve all tasks
-            ResponseObject response = await RetrieveTodos();
+            TaskResponseObject response = await RetrieveTodos();
 
             // Paginate
             response.Todos = response.Todos.Skip(offset).Take(limit).ToList();
-
-            // Set message
-            if (response.Status == 0)
-                response.Message = "Success";
 
             // Return final result
             return response;
@@ -57,10 +53,10 @@ namespace WebApi
         /// Retrieves all Todos from jsonplaceholder.typicode.com
         /// </summary>
         /// <returns>List of Todo items</returns>
-        public static async Task<ResponseObject> RetrieveTodos()
+        public static async Task<TaskResponseObject> RetrieveTodos()
         {
-            ResponseObject response = new ResponseObject() { 
-                Message = string.Empty,
+            TaskResponseObject response = new TaskResponseObject() { 
+                Message = "Success",
                 Status = Status.Success
             };
 

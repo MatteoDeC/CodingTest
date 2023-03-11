@@ -26,7 +26,10 @@ namespace WebApi
             {
                 // Enable Swagger
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "CodingTest API v1");
+                });
             }
             app.UseHttpLogging();
             app.UseHttpsRedirection();
@@ -34,6 +37,7 @@ namespace WebApi
 
             // Set APIs
             app.MapGet("/getAllTasks", GetAllTasks);
+            app.MapGet("/getAllUsers", GetAllUsers);
             app.MapGet("/getTaskByUser", GetTasksByUser);
 
             // Run app
@@ -44,18 +48,27 @@ namespace WebApi
             /// <summary>
             /// Retrieves all tasks, paginated
             /// </summary>
-            async Task<ResponseObject> GetAllTasks(HttpContext httpContext, [FromQuery] int limit = 10, int offset = 0)
+            async Task<TaskResponseObject> GetAllTasks(HttpContext httpContext, [FromQuery] int limit = 10, int offset = 0)
             {
-                ResponseObject response = await Todo.GetAllTasks(limit, offset);
+                TaskResponseObject response = await Todo.GetAllTasks(limit, offset);
+                return response;
+            }
+
+            /// <summary>
+            /// Retrieves all users
+            /// </summary>
+            async Task<UserResponseObject> GetAllUsers(HttpContext httpContext, [FromQuery] int max = 0)
+            {
+                UserResponseObject response = await User.GetUsers(max);
                 return response;
             }
 
             /// <summary>
             /// Retrieves all tasks filtered by user, paginated
             /// </summary>
-            async Task<ResponseObject> GetTasksByUser(HttpContext httpContext, [FromQuery] int userId, int limit = 10, int offset = 0)
+            async Task<TaskResponseObject> GetTasksByUser(HttpContext httpContext, [FromQuery] int userId, int limit = 10, int offset = 0)
             {
-                ResponseObject response = await User.GetTasksByUser(userId, limit, offset);
+                TaskResponseObject response = await User.GetTasksByUser(userId, limit, offset);
                 return response;
             }
         }
