@@ -47,7 +47,7 @@ namespace WebApi
             // Return final result
             return response;
         }
-        public static async Task<UserResponseObject> GetUsers(int max)
+        public static async Task<UserResponseObject> GetUsers(int limit)
         {
             List<User> users = new List<User>();
             UserResponseObject response = new UserResponseObject()
@@ -66,9 +66,12 @@ namespace WebApi
                     // Deserialize users to a list
                     users = JsonConvert.DeserializeObject<List<User>>(usersListJson);
 
+                    // Update Total
+                    response.Total = users.Count;
+
                     // Get a specific number of users if requested
-                    if(max > 0)
-                        users = users.Take(max).ToList();
+                    if (limit > 0)
+                        users = users.Take(limit).ToList();
 
                     // Convert list to a lighter dictionary with only required info
                     response.Users = users.ToDictionary(user => user.Id, user => user.Username);

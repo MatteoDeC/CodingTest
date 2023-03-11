@@ -66,6 +66,9 @@ namespace WebApi
         // Users list
         public Dictionary<int, string> Users { get; set; }
 
+        // Total objects available
+        public int Total { get; set; } = 0;
+
         // Status
         public Status Status { get; set; }
 

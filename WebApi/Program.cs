@@ -38,7 +38,7 @@ namespace WebApi
             // Set APIs
             app.MapGet("/getAllTasks", GetAllTasks);
             app.MapGet("/getAllUsers", GetAllUsers);
-            app.MapGet("/getTaskByUser", GetTasksByUser);
+            app.MapGet("/getTasksByUser", GetTasksByUser);
 
             // Run app
             app.Run();
@@ -57,9 +57,9 @@ namespace WebApi
             /// <summary>
             /// Retrieves all users
             /// </summary>
-            async Task<UserResponseObject> GetAllUsers(HttpContext httpContext, [FromQuery] int max = 0)
+            async Task<UserResponseObject> GetAllUsers(HttpContext httpContext, [FromQuery] int limit = 0)
             {
-                UserResponseObject response = await User.GetUsers(max);
+                UserResponseObject response = await User.GetUsers(limit);
                 return response;
             }
 
