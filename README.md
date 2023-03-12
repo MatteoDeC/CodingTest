@@ -48,3 +48,8 @@ curl 'https://localhost:7261/getAllUsers?limit=5'
 ```
 * A json object is returned. It includes: status of the operation (Success/Error), limited list of requested objects and the total amount of them available (for pagination purposes).
 
+### Authors
+
+* [@MatteoDeC](https://github.com/MatteoDeC)
+* ~ChatGPT~
+
