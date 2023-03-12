@@ -6,10 +6,15 @@ A collection of REST Web APIs to call, combine and return the result of `jsonpla
 
 * A ASP .Net Core Web Api Project, based on .Net 6.0.
 * No MVC pattern or controllers have been implemented to keep it minimal.
+* Options can be passed as path parameters in Get requests, purely for practical and simplicity reasons.
 * Logging: each request and response is logged to a daily rolling file (max 10MB) inside the `Logs` folder.
-* Docker: solution implements a dockerfile to automatically configre a Docker container (for Windows)
-* Documentation: a Swagger page appears by default when running the solution, showing complete documentation about the APIs
-* Actions: a Github action has been implemented (`workflow/build.yml`) to automatically build the project on each push
+* Docker: solution implements a dockerfile to automatically configre a Docker container (for Windows).
+* Documentation: a Swagger page appears by default when running the solution, showing complete documentation about the APIs.
+* Actions: a Github action has been implemented (`workflow/build.yml`) to automatically build the project on each push.
+
+## Unit Testing
+
+* A python script (`UnitTest.py`) for Unit Testing is available in the solution folder.
 
 ## Getting Started
 
@@ -20,8 +25,8 @@ A collection of REST Web APIs to call, combine and return the result of `jsonpla
 
 ### Installing
 
-* Download or clone the repository
-* Build from Visual Studio using any of the available profiles
+* Download or clone the repository.
+* Build from Visual Studio using any of the available profiles.
 
 ### Using the software
 
@@ -29,7 +34,7 @@ A collection of REST Web APIs to call, combine and return the result of `jsonpla
 ```
 https://localhost:7261/swagger/index.html
 ```
-* Default port is `7261` if not edited from Docker
+* Default port for Https is `7261` if not edited from Docker, `7262` for http.
 * Example of a very basic request from curl
 ```
 curl 'https://localhost:7261/getAllTasks'
