@@ -32,7 +32,7 @@ namespace WebApi
                 });
             }
             app.UseHttpLogging();
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseSerilogRequestLogging();
 
             // Set APIs
