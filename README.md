@@ -8,7 +8,7 @@ A collection of REST Web APIs to call, combine and return the result of `jsonpla
 * No MVC pattern or controllers have been implemented to keep it minimal.
 * Options can be passed as path parameters in Get requests, purely for practical and simplicity reasons.
 * Logging: each request and response is logged to a daily rolling file (max 10MB) inside the `Logs` folder.
-* Docker: solution implements a dockerfile to automatically configre a Docker container (for Windows).
+* Docker: the solution includes a dockerfile to automatically configure a (Windows) container.
 * Documentation: a Swagger page appears by default when running the solution, showing complete documentation about the APIs.
 * Actions: a Github action has been implemented (`workflow/build.yml`) to automatically build the project on each push.
 
@@ -26,7 +26,7 @@ A collection of REST Web APIs to call, combine and return the result of `jsonpla
 ### Installing
 
 * Download or clone the repository.
-* Build from Visual Studio using any of the available profiles.
+* Build and run from Visual Studio using any of the available profiles.
 
 ### Using the software
 
